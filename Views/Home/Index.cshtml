@@ -1,0 +1,10 @@
+﻿@using WebCore6Test.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @foreach(var student in ViewData["Student"] as List<Student>){
+        <div>@student.Name</div>
+        }
+</div>
