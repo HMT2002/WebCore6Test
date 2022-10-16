@@ -4,7 +4,7 @@
 }
 
 <div class="text-center">
-    @foreach(var student in ViewData["Student"] as List<Student>){
+    @foreach(var student in new SchoolDbContext().Students.ToList()){
         <div>@student.Name</div>
         }
 </div>

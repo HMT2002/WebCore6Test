@@ -11,7 +11,7 @@ using WebCore6Test.Models;
 namespace WebCore6Test.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20221011104353_create-db")]
+    [Migration("20221012180310_create-db")]
     partial class createdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

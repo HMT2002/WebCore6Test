@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using System.Diagnostics;
 using WebCore6Test.Models;
 
@@ -15,7 +16,18 @@ namespace WebCore6Test.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Student"] = new SchoolDbContext().Students.ToList();
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\mssqlserver01;Initial Catalog=SchoolDb;Integrated Security=True");
+
+            sqlConnection.Open();
+
+            using(SqlCommand cmd = sqlConnection.CreateCommand())
+            {
+                cmd.CommandText = @"update Students set TEN = 'Nguyen Van B' where ID = 'ID1'";
+                cmd.ExecuteNonQuery();
+            }
+
+            sqlConnection.Close();
+
             return View();
         }
 
